@@ -20,7 +20,7 @@ const wordsAreConnectedByDeletion = (word1, word2) => {
       }
     }
   }
-  console.log("We think those were connected by deletion");
+  console.log("We think those were connected by superman");
   return true;
 };
 
