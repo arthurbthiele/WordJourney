@@ -1,5 +1,5 @@
 import React from "react";
-import { words } from "./words";
+import { wordGraph } from "./graphEntries";
 import { TextInput, Text, Button, View } from "react-native";
 import { wordsAreConnected } from "./wordAreConnected";
 
@@ -10,14 +10,14 @@ export const WordInput = ({
   setSelectedWord,
 }) => {
   const [value, setValue] = React.useState("Please Enter a Word");
-  const wordIsValid = words.includes(value);
+  const wordIsValid = value in wordGraph;
   const message = wordIsValid
     ? "This word is in the dictionary!"
     : "This is NOT in the dictionary";
   const onPress = () => {
     const newNode = { id: value, label: value };
     const newEdges = [{ from: selectedWord, to: value }];
-    if (wordIsValid && selectedWord && wordsAreConnected(value, selectedWord)) {
+    if (selectedWord && wordIsValid && wordsAreConnected(value, selectedWord)) {
       setGraph({
         nodes: [...graph.nodes, newNode],
         edges: [...graph.edges, ...newEdges],

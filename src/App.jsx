@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { StyleSheet, Text, View, TextInput } from "react-native";
 import { WordInput } from "./WordInput";
 import { Graph } from "./Graph";
+import { initialiseDepths, updateDepths } from "./wordDepths";
 
 export function App() {
   const [graph, setGraph] = useState({
@@ -10,6 +11,10 @@ export function App() {
     edges: [],
   });
   const [selectedWord, setSelectedWord] = useState();
+
+  const [depths, setDepths] = useState(initialiseDepths());
+  updateDepths(depths, graph.nodes);
+  console.log(depths);
 
   return (
     <View style={styles.container}>
