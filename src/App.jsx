@@ -10,11 +10,10 @@ export function App() {
     nodes: [{ id: "a", label: "a" }],
     edges: [],
   });
-  const [selectedWord, setSelectedWord] = useState();
+  const [selectedWord, setSelectedWord] = useState("a");
 
   const [depths, setDepths] = useState(initialiseDepths());
   updateDepths(depths, graph.nodes);
-  console.log(depths);
 
   return (
     <View style={styles.container}>
@@ -25,7 +24,11 @@ export function App() {
         selectedWord={selectedWord}
         setSelectedWord={setSelectedWord}
       />
-      <Graph graph={graph} setSelectedWord={setSelectedWord} selectedWord />
+      <Graph
+        graph={graph}
+        setSelectedWord={setSelectedWord}
+        selectedWord={selectedWord}
+      />
     </View>
   );
 }

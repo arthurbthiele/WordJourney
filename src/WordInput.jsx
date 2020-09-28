@@ -22,7 +22,7 @@ export const WordInput = ({
         nodes: [...graph.nodes, newNode],
         edges: [...graph.edges, ...newEdges],
       });
-      setSelectedWord(newNode);
+      setSelectedWord(newNode.id);
     }
   };
 

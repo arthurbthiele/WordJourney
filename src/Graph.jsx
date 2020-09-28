@@ -12,12 +12,23 @@ const options = {
 
 export const Graph = ({ graph, setSelectedWord, selectedWord }) => {
   const [selectedNodes, setSelectedNodes] = useState();
+
+  const [network, setNetwork] = useState();
+  const setNetworkInstance = (nw) => {
+    setNetwork(nw);
+  };
+
   const events = {
     select: (event) => {
       setSelectedNodes(event.nodes);
-      setSelectedWord(event.nodes[0]);
+      setSelectedWord(event.nodes[0]?.id || event.nodes[0]);
+    },
+    afterDrawing: () => {
+      if (selectedWord !== network?.getSelectedNodes()[0])
+        network?.setSelection({ nodes: [selectedWord] });
     },
   };
+
   return (
     <>
       <View
@@ -35,6 +46,7 @@ export const Graph = ({ graph, setSelectedWord, selectedWord }) => {
           options={options}
           events={events}
           selectedNodes={[selectedWord]}
+          getNetwork={setNetworkInstance}
         />
       </View>
       {selectedNodes && selectedNodes[0] !== undefined && (
