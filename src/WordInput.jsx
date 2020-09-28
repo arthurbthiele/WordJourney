@@ -40,11 +40,15 @@ export const WordInput = ({
         }}
         onSubmitEditing={() => {
           onPress();
+          console.log(textInputRef);
           textInputRef.current._handleFocus();
         }}
         blurOnSubmit={false}
         selectTextOnFocus
         ref={textInputRef}
+        onBlur={() => {
+          textInputRef.current._handleFocus();
+        }}
         onChangeText={(text) => setValue(text)}
         placeholder="Please enter a word..."
         value={value}
