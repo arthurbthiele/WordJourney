@@ -40,7 +40,6 @@ export const WordInput = ({
         }}
         onSubmitEditing={() => {
           onPress();
-          console.log(textInputRef);
           textInputRef.current._handleFocus();
         }}
         blurOnSubmit={false}
