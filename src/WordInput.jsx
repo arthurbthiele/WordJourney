@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { wordGraph } from "./graphEntries";
 import { TextInput, Text, Button, View } from "react-native";
 import { wordsAreConnected } from "./wordAreConnected";
@@ -10,6 +10,8 @@ export const WordInput = ({
   setSelectedWord,
 }) => {
   const [value, setValue] = React.useState("");
+  const textInputRef = useRef();
+
   const wordIsValid = value in wordGraph;
   const message = wordIsValid
     ? "This word is in the dictionary!"
@@ -36,8 +38,13 @@ export const WordInput = ({
           justifyContent: "center",
           padding: 12,
         }}
-        onSubmitEditing={onPress}
+        onSubmitEditing={() => {
+          onPress();
+          textInputRef.current._handleFocus();
+        }}
         blurOnSubmit={false}
+        selectTextOnFocus
+        ref={textInputRef}
         onChangeText={(text) => setValue(text)}
         placeholder="Please enter a word..."
         value={value}
