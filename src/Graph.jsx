@@ -49,8 +49,8 @@ export const Graph = ({ graph, setSelectedWord, selectedWord }) => {
           getNetwork={setNetworkInstance}
         />
       </View>
-      {selectedNodes && selectedNodes[0] !== undefined && (
-        <Text>{`The currently selected word is ${selectedNodes[0]}`}</Text>
+      {selectedWord && (
+        <Text>{`The currently selected word is ${selectedWord}`}</Text>
       )}
     </>
   );
