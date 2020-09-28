@@ -9,7 +9,7 @@ export const WordInput = ({
   selectedWord,
   setSelectedWord,
 }) => {
-  const [value, setValue] = React.useState("Please Enter a Word");
+  const [value, setValue] = React.useState("");
   const wordIsValid = value in wordGraph;
   const message = wordIsValid
     ? "This word is in the dictionary!"
@@ -37,6 +37,7 @@ export const WordInput = ({
           padding: 12,
         }}
         onChangeText={(text) => setValue(text)}
+        placeholder="Please enter a word..."
         value={value}
       />
 
