@@ -28,18 +28,6 @@ export const updateDepths = (depths, currentGraphNodes) => {
       }
     });
   }
-  let maxDepth = 0;
-  let maxDepthWords = [];
-  Object.keys(depths).forEach((word) => {
-    if (depths[word] > maxDepth) {
-      maxDepth = depths[word];
-      maxDepthWords = [word];
-    } else if (depths[word] == maxDepth) {
-      maxDepthWords.push(word);
-    }
-  });
-  console.log(maxDepth);
-  console.log(maxDepthWords);
 };
 
 const getAdjacentWords = (currentWord) => {
