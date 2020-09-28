@@ -36,6 +36,8 @@ export const WordInput = ({
           justifyContent: "center",
           padding: 12,
         }}
+        onSubmitEditing={onPress}
+        blurOnSubmit={false}
         onChangeText={(text) => setValue(text)}
         placeholder="Please enter a word..."
         value={value}
