@@ -1,6 +1,6 @@
 import GraphVis from "react-graph-vis";
 import React, { useState } from "react";
-import { View, Text, TextInput } from "react-native";
+import { View, Text } from "react-native";
 
 const options = {
   edges: {
@@ -49,9 +49,6 @@ export const Graph = ({ graph, setSelectedWord, selectedWord }) => {
           getNetwork={setNetworkInstance}
         />
       </View>
-      {selectedWord && (
-        <Text>{`The currently selected word is ${selectedWord}`}</Text>
-      )}
     </>
   );
 };

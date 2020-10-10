@@ -4,6 +4,7 @@ import { StyleSheet, Text, View, TextInput } from "react-native";
 import { WordInput } from "./WordInput";
 import { Graph } from "./Graph";
 import { initialiseDepths, updateDepths } from "./wordDepths";
+import { TargetWord } from "./TargetWord";
 
 export function App() {
   const [graph, setGraph] = useState({
@@ -18,6 +19,10 @@ export function App() {
   return (
     <View style={styles.container}>
       <StatusBar style="auto" />
+      <Text>
+        Your current score is: {graph.nodes.length} /{" "}
+        {Object.keys(depths).length}
+      </Text>
       <WordInput
         setGraph={setGraph}
         graph={graph}
@@ -29,6 +34,7 @@ export function App() {
         setSelectedWord={setSelectedWord}
         selectedWord={selectedWord}
       />
+      <TargetWord depths={depths} graph={graph} />
     </View>
   );
 }

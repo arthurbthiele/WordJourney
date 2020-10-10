@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { wordGraph } from "./graphEntries";
 import { TextInput, Text, Button, View } from "react-native";
 import { wordsAreConnected } from "./wordAreConnected";
@@ -9,13 +9,13 @@ export const WordInput = ({
   selectedWord,
   setSelectedWord,
 }) => {
-  const [value, setValue] = React.useState("");
+  const [value, setValue] = useState("");
   const textInputRef = useRef();
 
   const wordIsValid = value in wordGraph;
   const message = wordIsValid
     ? "This word is in the dictionary!"
-    : "This is NOT in the dictionary";
+    : "This is NOT in the dictionary, or is unreachable";
   const onPress = () => {
     const newNode = { id: value, label: value };
     const newEdges = [{ from: selectedWord, to: value }];
@@ -33,6 +33,7 @@ export const WordInput = ({
       <TextInput
         style={{
           height: 40,
+          width: 300,
           borderColor: "gray",
           borderWidth: 0.5,
           justifyContent: "center",
