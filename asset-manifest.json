@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.js": "/WordJourney/static/js/main.5753c228.chunk.js",
+    "main.js.map": "/WordJourney/static/js/main.5753c228.chunk.js.map",
+    "runtime-main.js": "/WordJourney/static/js/runtime-main.b2efd962.js",
+    "runtime-main.js.map": "/WordJourney/static/js/runtime-main.b2efd962.js.map",
+    "static/js/2.6775043c.chunk.js": "/WordJourney/static/js/2.6775043c.chunk.js",
+    "static/js/2.6775043c.chunk.js.map": "/WordJourney/static/js/2.6775043c.chunk.js.map",
+    "index.html": "/WordJourney/index.html",
+    "static/js/2.6775043c.chunk.js.LICENSE.txt": "/WordJourney/static/js/2.6775043c.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b2efd962.js",
+    "static/js/2.6775043c.chunk.js",
+    "static/js/main.5753c228.chunk.js"
+  ]
+}
